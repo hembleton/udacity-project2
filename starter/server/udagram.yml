@@ -58,20 +58,22 @@ Resources:
             sudo apt-get update -y
             sudo apt-get install nginx -y
             sudo systemctl start nginx
-            WEB DIR="/var/www/html"
-            cat <<EOF > index.html
+            apt-get update -y
+            WEB_DIR="/var/www/html"
+            sudo rm -f ${WEB_DIR}/index.nginx-debian.html
+            cat <<EOF | sudo tee ${WEB_DIR}/index.html
             <!DOCTYPE html>
             <html>
             <head>
               <title>It works! Udagram, Udacity</title>
             </head>
-            <body> 
+            <body>
               <h1>It works! Udagram, Udacity</h1>
-              <p>This website is hosted on Nginx</p>
+              <p>This website is hosted on Nginx.</p>
             </body>
             </html>
             EOF
-            sudo systemctl restart nginx
+            sudo systemctl reload nginx
         SecurityGroupIds:
           - !Ref SecurityGroup
         InstanceType: t2.micro
