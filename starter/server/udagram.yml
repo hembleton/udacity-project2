@@ -55,9 +55,23 @@ Resources:
         UserData:
           Fn::Base64: |
             #!/bin/bash
-            apt-get update -y
+            sudo apt-get update -y
             sudo apt-get install nginx -y
-            service nginx start
+            sudo systemctl start nginx
+            WEB DIR="/var/www/html"
+            cat <<EOF > index.html
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <title>It works! Udagram, Udacity</title>
+            </head>
+            <body> 
+              <h1>It works! Udagram, Udacity</h1>
+              <p>This website is hosted on Nginx</p>
+            </body>
+            </html>
+            EOF
+            sudo systemctl restart nginx
         SecurityGroupIds:
           - !Ref SecurityGroup
         InstanceType: t2.micro
