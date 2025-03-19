@@ -194,4 +194,9 @@ Resources:
       Path: '/'
       Roles:
       - !Ref IAMRole
+
+Outputs:
+  LoadBalancerURL:
+    Description: Public URL of the LoadBalancer
+    Value: !Sub "http://${LoadBalancer.DNSName}"
     

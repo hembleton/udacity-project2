@@ -2,12 +2,12 @@
 # Heather Embleton      
 
 ## Spin up instructions
+Git Clone - git@github.com:hembleton/udacity-project2.git
 Navigate to the network folder
 Run ./create.sh udagram-network network.yml network-parameters.json
-Navigate to aws cloud formation dashboard, once the stack is completed sucessfully, navigate to the server folder
+Navigate to the server folder
 ./create.sh udagram-server udagram.yml udagram-parameters.json
-Once the stack is completed sucessfully go to EC2 dashboard & navigate to autoscailing
-Find DNS - copy this link and paste into browser
+Load balacer url - http://server-LoadB-EeUGCSuSeH9j-2040911645.us-east-1.elb.amazonaws.com
 
 
 ## Tear down instructions
