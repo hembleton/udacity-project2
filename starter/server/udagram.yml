@@ -55,24 +55,24 @@ Resources:
         UserData:
           Fn::Base64: |
             #!/bin/bash
-            sudo apt-get update -y
-            sudo apt-get install nginx -y
-            sudo systemctl start nginx
             apt-get update -y
+            sudo apt-get install nginx -y
+            service nginx start
             WEB_DIR="/var/www/html"
-            sudo rm -f ${WEB_DIR}/index.html
-            cat <<EOF | sudo tee ${WEB_DIR}/index.html
+            cat <<EOF > index.html
             <!DOCTYPE html>
-            <html>
-            <head>
-              <title>It works! Udagram, Udacity</title>
-            </head>
-            <body>
-              <h1>It works! Udagram, Udacity</h1>
-              <p>This website is hosted on Nginx.</p>
-            </body>
+            <html lang="en">
+              <head>
+                <title>It works! Udagram, Udacity</title> 
+              </head>
+              <body>
+                <h1>It works! Udagram, Udacity</h1>
+                <p>This website is hosted on Nginx.</p>
+              </body>
             </html>
             EOF
+            sudo rm -r $WEB_DIR/index.*
+            sudo cp index.html $WEB_DIR
             sudo systemctl reload nginx
         SecurityGroupIds:
           - !Ref SecurityGroup
