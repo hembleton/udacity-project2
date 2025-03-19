@@ -60,7 +60,7 @@ Resources:
             sudo systemctl start nginx
             apt-get update -y
             WEB_DIR="/var/www/html"
-            sudo rm -f ${WEB_DIR}/index.nginx-debian.html
+            sudo rm -f ${WEB_DIR}/index.html
             cat <<EOF | sudo tee ${WEB_DIR}/index.html
             <!DOCTYPE html>
             <html>
