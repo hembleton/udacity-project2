@@ -7,7 +7,8 @@ Navigate to the network folder
 Run ./create.sh udagram-network network.yml network-parameters.json
 Navigate to the server folder
 ./create.sh udagram-server udagram.yml udagram-parameters.json
-Load balacer url - http://server-LoadB-4SS8nv57UQP9-90144586.us-east-1.elb.amazonaws.com
+Load balacer url - http://server-LoadB-SPwIkWh0xI34-1728752599.us-east-1.elb.amazonaws.com
+(please note see the screenshots for this working)
 
 
 ## Tear down instructions
